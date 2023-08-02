@@ -7,9 +7,12 @@ app.use(cors());
 app.use(express.json());
 
 const balances = {
-  "0x1": 100,
-  "0x2": 50,
-  "0x3": 75,
+  // pk: 061e15eb71d3316157e015b9e2c35b5dc2d4e967f3703b505230d4a732fd2e08
+  "0x0320dd553a5ab3b467d07da357254acf0b024607": 100,
+  // pk: 46233329ca4d0b6e9fe130f8811829ae36e43705230c060aef097571323869f0
+  "0xd6c37cff43be44f4fa0db38374c1f1bb1c28a6ae": 50,
+  // pk: 8db408f4063b0ec15012b528afdf85f54059744a1169d1f902d3ac737c58bf00
+  "0xca6a2c40fceeade377d17db84b1f9a4c807abdbe": 75,
 };
 
 app.get("/balance/:address", (req, res) => {
