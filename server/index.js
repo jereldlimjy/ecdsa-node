@@ -2,6 +2,9 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const port = 3042;
+const { keccak256 } = require("ethereum-cryptography/keccak")
+const { utf8ToBytes } = require("ethereum-cryptography/utils");
+const toAddress = require("./utils/toAddress");
 
 app.use(cors());
 app.use(express.json());
@@ -22,7 +25,12 @@ app.get("/balance/:address", (req, res) => {
 });
 
 app.post("/send", (req, res) => {
-  const { sender, recipient, amount } = req.body;
+  const { transaction } = req.body;
+
+  // const hashedTx = keccak256(utf8ToBytes(JSON.stringify(transaction)));
+  const sender = "0x0320dd553a5ab3b467d07da357254acf0b024607";
+  const recipient = transaction.recipient;
+  const amount = transaction.sendAmount;
 
   setInitialBalance(sender);
   setInitialBalance(recipient);

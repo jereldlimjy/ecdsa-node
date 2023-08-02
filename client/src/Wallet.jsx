@@ -12,7 +12,7 @@ function Wallet({ privateKey, setPrivateKey, balance, address }) {
 
       <label>
         Private Key
-        <input placeholder="Type a private key" value={privateKey} onChange={onChange}></input>
+        <input placeholder="Type a private key" value={privateKey} onChange={onChange} type="password"></input>
       </label>
 
       <div className="address">Address: {address}</div>
